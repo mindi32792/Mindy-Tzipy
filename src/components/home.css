@@ -1,0 +1,25 @@
+.header{
+
+display: flex;
+}
+.navigate{
+    height: 100px;
+    width: 33%;
+    margin-bottom: 15px;
+    font-size: 50px;
+    background-color: #8dbc66;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    border: none;
+   text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    }
+    .navigate:not(:disabled):hover {
+        background-color: #78a454;
+    }
+ .logo{
+width: 50%;
+height: 50%;
+margin-left: 25%;
+    }

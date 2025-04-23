@@ -1,0 +1,17 @@
+
+.aba{
+
+    display: flex;
+
+}
+.model{
+  margin: 2%;
+    border: black solid 2px;
+    width: 250px;
+    height: 250px;
+}
+.item{
+  width: 100px;
+  height: 100px;
+  /* margin-left: 25%; */
+      }
