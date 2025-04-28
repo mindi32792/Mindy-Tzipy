@@ -12,7 +12,8 @@ const INITIAL_STATE = {
     order:'',
     token:-1,
     status:0,
-    detailingOrders:[]
+    detailingOrders:[],
+  
 }
 // const INITIAL_STATE = {
 //     user: {username:'',pasword:''},

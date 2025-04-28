@@ -6,6 +6,8 @@ import { Route } from "react-router-dom"
 import { LogIn } from "./logIn"
 import { Payment } from "./payment"
 import { LogOn } from "./logOn"
+import { Calendar } from "./calendar"
+
 
 
 
@@ -19,6 +21,7 @@ return<>
 <Route path={'/Model'} element={<Modell/>}/>
 <Route path={'/logon'} element={<LogOn/>}/>
 <Route path={'/payment'} element={<Payment/>}/>
+<Route path={'/calender'} element={<Calendar/>}/>
 </Routes>
 
 

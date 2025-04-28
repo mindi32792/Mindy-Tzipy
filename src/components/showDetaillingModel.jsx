@@ -36,7 +36,8 @@ export const ShowDetailingModel=(prop)=>{
                         return <div className=""> 
                             <label>דגם: {e.idModel} </label>
                             <label>מידה: {e.size} </label>
-                            <label>כמות: {e.count} </label>
+                            <label>כמות לפי תאריך: {e.countByDate} </label>
+                             <label>כמות : {e.count} </label>
                         </div>
                     })}
               <img  className='item' src={`${picture}`}/>       

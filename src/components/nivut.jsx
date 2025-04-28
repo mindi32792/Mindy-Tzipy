@@ -24,12 +24,16 @@ export const Nivut = () => {
    const payment = () => {
       navigate(`/payment`)
    }
+    const calender = () => {
+      navigate(`/calender`)
+   }
    return <div>
       <div className="header">
          <div className='navigate' onClick={() => goToModel()}>תלבושות</div>
          <div className='navigate' onClick={() => goToOrders()}>הזמנות</div>
          {/* <div className='navigate' onClick={() => login()}> רישום </div> */}
          <div className='navigate' onClick={() => payment()}> תשלום </div>
+           <div className='navigate' onClick={() => calender()}> יומן הזמנות </div>
       </div>
       {/* <img  className='logo' src="logo.jpg"  /> */}
       {/* {dialog === true && <LogIn />} */}
