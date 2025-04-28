@@ -2,8 +2,6 @@ import { createSlice } from "@reduxjs/toolkit"
 import { getModelThunk } from "./getModelthunk"
 import { getDetailingModelsThunk } from "./getDetailingModelsThunk"
 
-
-
 const INITIAL_STATE = {
     error: '',
     model:'',

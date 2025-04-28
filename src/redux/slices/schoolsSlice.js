@@ -8,17 +8,23 @@ const INITIAL_STATE = {
     school:'',
     token:-1,
     status:0,
-    school:{idSchool:0,name: '',addressSchool: '', phone: ''}
+    school:{idSchool:0,name: null,addressSchool: '', phone: ''},
+    dateOfEvent:''
 }
 
 export const SchoolsSlice = createSlice({
     name: 'schoolsSlice',
     initialState: INITIAL_STATE,
+  
     reducers: {
-        // updatOrder: (state, action) => {
-        //     state.order = action.payload
-        // }
-    },
+        setEventDate: (state, action) => {
+          state.dateOfEvent = action.payload;
+        },
+        clearEventDate: (state) => {
+          state.dateOfEvent = null;
+        },
+      },
+    
     extraReducers: (builder) => {
         //add
 //         builder.addCase(addEventThunk.pending, (state) => {
@@ -106,5 +112,9 @@ export const SchoolsSlice = createSlice({
    }
   })
 //   export const { updatOrder } = OrderSlice.actions;
-  export const { } = SchoolsSlice.actions;
+//   export const { } = SchoolsSlice.actions;
+  export const { setEventDate, clearEventDate } = SchoolsSlice.actions;
+
+export default SchoolsSlice.reducer;
+
 //  export default OrderSlice.reducer

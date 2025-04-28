@@ -10,6 +10,9 @@ export const Modell = () => {
   const [dialog, setDialog] = useState(false)
   const [picture1, setPicture1] = useState()
   const modells = useSelector(state => state.modellSlice.models)
+  
+  const eventDate = useSelector(state => state.schoolsSlice.dateOfEvent)
+
   // const detailsModel=useSelector(state=>state.detailngModelsSlice.detailsModel)
   const detailsModel = useSelector(state => state.detailngModelsSlice.detailingModels)
   const dispatch = useDispatch();
@@ -18,7 +21,8 @@ export const Modell = () => {
     if (modells.length == 0) getModels()
   }, [])
   const showDetails = async (id1, picture) => {
-    await dispatch(getDetailingModelsThunk(id1));
+    debugger
+    await dispatch(getDetailingModelsThunk({id1,eventDate}));
     setDialog(true)
     setPicture1(picture)
   }
