@@ -5,7 +5,6 @@ import { logOnThunk } from "./logOnThunk"
 
 const INITIAL_STATE = {
     schools: [],
-    school:'',
     token:-1,
     status:0,
     school:{idSchool:0,name: null,addressSchool: '', phone: ''},
@@ -50,7 +49,7 @@ export const SchoolsSlice = createSlice({
 
         builder.addCase(loginThunk.fulfilled, (state, action) => {
             debugger
-          
+            state.school.push(action.meta.arg.newEvent);
         })
         builder.addCase(loginThunk.rejected, (state, action) => {
             console.log("action: ", action);

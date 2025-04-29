@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { getOrdersThunk } from "./getOrderThunk"
 import { getDetailingOrdersThunk } from "./getDetailingOrderThunk"
+import { updatOrderThunk } from "./updateOrderThunk"
 
 
 
@@ -9,11 +10,11 @@ const INITIAL_STATE = {
     eventForSearch: {},
     search: false,
     error: '',
-    order:'',
+    order:{idOrder:0,idSchool:0,contact:'', phoneContact:'',provisionAddress:'',dateOfOrdder:'',dateOfEvent:'',costPrice:0,detailingOrders:[]},
+ 
     token:-1,
     status:0,
     detailingOrders:[],
-  
 }
 // const INITIAL_STATE = {
 //     user: {username:'',pasword:''},
@@ -31,31 +32,23 @@ export const OrderSlice = createSlice({
         // }
     },
     extraReducers: (builder) => {
-        //add
-//         builder.addCase(addEventThunk.pending, (state) => {
-    
-//             state.loading = true;
-//         });
-//         builder.addCase(addEventThunk.fulfilled, (state, action) => {
-// if( !state.events|| state.events.length===0){
-//     state.events=[]
-// }
-//             state.events.push(action.meta.arg.newEvent)
-//             console.log(action.meta.arg.newEvent + " add event");
-//             state.loading = false;
+        //add order
+        builder.addCase(updatOrderThunk.pending, (state) => {
+            state.loading = true;
+        });
+        builder.addCase(updatOrderThunk.fulfilled, (state, action) => {
+        if( !state.orders|| state.orders.length===0){
+           state.orders=[]
+         }
+            state.orders.push(action.meta.arg.newEvent)
+            console.log(action.meta.arg.newEvent + " add order");
+            state.loading = false;
 
-//         });
-//         builder.addCase(addEventThunk.rejected, (state, action) => {
-//             state.error = "Failed to get data";
-//             state.loading = false;
-//         })
+        });
+      
         //getOrder
         builder.addCase(getOrdersThunk.pending, (state) => {
         })
-
-        // builder.addCase(getOrdersThunk.fulfilled, (state, action) => {
-        //     state.events = action.payload;
-        // })
         builder.addCase(getOrdersThunk.fulfilled, (state, action) => {
             debugger
             state.orders = action.payload;
@@ -63,13 +56,10 @@ export const OrderSlice = createSlice({
         builder.addCase(getOrdersThunk.rejected, (state, action) => {
             console.log("action: ", action);
         })
+
           //getDetailing
           builder.addCase(getDetailingOrdersThunk.pending, (state) => {
         })
-
-        // builder.addCase(getOrdersThunk.fulfilled, (state, action) => {
-        //     state.events = action.payload;
-        // })
         builder.addCase(getDetailingOrdersThunk.fulfilled, (state, action) => {
             debugger
             state.detailingOrders = action.payload;
