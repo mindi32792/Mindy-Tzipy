@@ -37,9 +37,10 @@ export const ShowDetailingModel=(prop)=>{
                             <label>דגם: {e.idModel} </label>
                             <label>מידה: {e.size} </label>
                             <label>כמות לפי תאריך: {e.countByDate} </label>
-                             <label>כמות : {e.count} </label>
-                        </div>
+                             <label>כמות : {e.count} </label>                      
+  </div>
                     })}
+               <button>הוסף לסל</button>     
               <img  className='item' src={`${picture}`}/>       
     </dialog>
 }

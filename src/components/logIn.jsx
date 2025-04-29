@@ -173,18 +173,20 @@ export const LogIn = () => {
   const navigate = useNavigate();
   const school = useSelector(state => state.schoolsSlice.school);
   const savedEventDate = useSelector(state => state.schoolsSlice.eventDate);
-  
-  // בדיקה אם המשתמש כבר מחובר, אם כן - ניווט לדף הבית
+  const newOrder = useSelector(state => state.orderSlice.order);
+  // בדיקה אם המשתמש כבר מחובר, אם כן - ניווטv לדף הבית
   useEffect(() => {
     if (school && school.name && school.name.trim() !== "") {
+      // newOrder.idSchool=
+      // newOrder.dateOfEvent = savedEventDate;
       navigate('/home');
     }
-    
     // אם יש תאריך שמור, נשתמש בו
-    if (savedEventDate) {
-      setDateOfEvent(savedEventDate);
-      setFlagDate(true);
-    }
+    // הורדתי מכיוון שזה לא אומר שאם המשתמש קיים חייב להיות שההזמנה החדשה באותו תאריך
+    // if (savedEventDate) {
+    //   setDateOfEvent(savedEventDate);
+    //   setFlagDate(true);
+    // }
   }, [school, navigate, savedEventDate]);
   
   const handleLogin = () => {

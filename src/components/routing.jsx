@@ -7,6 +7,8 @@ import { LogIn } from "./logIn"
 import { Payment } from "./payment"
 import { LogOn } from "./logOn"
 import { Calendar } from "./calendar"
+import { Card } from "./card"
+
 
 
 
@@ -22,6 +24,7 @@ return<>
 <Route path={'/logon'} element={<LogOn/>}/>
 <Route path={'/payment'} element={<Payment/>}/>
 <Route path={'/calender'} element={<Calendar/>}/>
+<Route path={'/craditCard'} element={<Card/>}/>
 </Routes>
 
 
