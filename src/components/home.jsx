@@ -6,12 +6,11 @@ import { Nivut } from './nivut';
 
 
 export const Home=()=>{
-
-
+ 
 return <div>
-
 <Nivut></Nivut>
-    <img  className='logo' src="logo.jpg"  />
+
+    <img  className='logo' src="logo100.png"  />
 
 </div>
 

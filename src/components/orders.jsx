@@ -9,14 +9,20 @@ import { Nivut } from "./nivut";
 import { useEffect, useState } from "react";
 import { getDetailingOrdersThunk } from "../redux/slices/getDetailingOrderThunk";
 import { DetailingOrder, ShowDetailingOrder } from "./showDetailingOrder";
+import { Maneger } from "./manegar";
 export const Orders = () => {
+
     const orders = useSelector(state => state.orderSlice.orders)
     const detailingO=useSelector(state=>state.orderSlice.detailingOrders)
+    const schoolName = useSelector(state => state.schoolsSlice.school.name)
+
     const [dialog,setDialog]=useState(false)
     const dispatch = useDispatch();
+
     useEffect(() => {
         getOrders()
     }, [])
+
     const getOrders = async() => {
       await  dispatch(getOrdersThunk())
     }
@@ -30,7 +36,8 @@ export const Orders = () => {
  
     return (
         <div >
-            <Nivut></Nivut>
+          {schoolName=="maneger" && <Maneger></Maneger> || <Nivut></Nivut>}
+
             {/* <button className="buttonGet" onClick={() => getOrders()}>
                 הצגת כל ההזמנות
             </button> */}

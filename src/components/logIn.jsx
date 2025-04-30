@@ -174,11 +174,11 @@ export const LogIn = () => {
   const school = useSelector(state => state.schoolsSlice.school);
   const savedEventDate = useSelector(state => state.schoolsSlice.eventDate);
   const newOrder = useSelector(state => state.orderSlice.order);
+  const [maneger, setManeger] = useState('maneger');
+  			
   // בדיקה אם המשתמש כבר מחובר, אם כן - ניווטv לדף הבית
   useEffect(() => {
     if (school && school.name && school.name.trim() !== "") {
-      // newOrder.idSchool=
-      // newOrder.dateOfEvent = savedEventDate;
       navigate('/home');
     }
     // אם יש תאריך שמור, נשתמש בו
@@ -192,7 +192,14 @@ export const LogIn = () => {
   const handleLogin = () => {
     // שמירת התאריך ב-Redux
     dispatch(setEventDate(dateOfEvent));
-    
+    debugger
+    if(schoolName=="12345"){
+      dispatch(logOnThunk(maneger))
+        // בדיקה אם ההתחברות הצליחה
+          navigate('/maneger');
+      
+     }
+    else{
     // שליחת פעולת התחברות
     dispatch(logOnThunk(schoolName))
       .then((result) => {
@@ -204,6 +211,7 @@ export const LogIn = () => {
           navigate('/logon');
         }
       });
+    }
   }
   
   return (
