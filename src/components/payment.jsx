@@ -55,9 +55,9 @@ export const Payment=()=>{
       setFlagF(false)
     }} />
     <br />
-    <label className="formLabel">כתובת הספקה </label>
+    <label className="formLabel">כתובת אספקה </label>
     <br />
-    <input   className="formInput"  type="text" placeholder="כתובת הספקה" onChange={(e) => {
+    <input   className="formInput"  type="text" placeholder="כתובת אספקה" onChange={(e) => {
     //   newOrder.provisionAddress=e.target.value
       setProvisionAddress(e.target.value)
             if (e.target.value !== "") {

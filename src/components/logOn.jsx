@@ -22,7 +22,7 @@ export const LogOn = () => {
   return <>
   
   <div className="formContainer">
-  <label className="aa">יש להירשם למערכת</label>
+  <label className="aa">יש להרשם למערכת</label>
   <br />
   <br />
     <label className="formLabel">שם מוסד</label>

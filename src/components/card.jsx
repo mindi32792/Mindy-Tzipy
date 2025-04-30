@@ -25,9 +25,9 @@ export const Card=()=>{
  
   <div className="formContainer">
   <br />
-    <label className="formLabel">הכנס מיספר אשראי</label>
+    <label className="formLabel">הכנס מספר אשראי</label>
     <br />
-    <input   className="formInput"  type="text" placeholder="מיספר אשראי" onChange={(e) => {
+    <input   className="formInput"  type="text" placeholder="מספר אשראי" onChange={(e) => {
     setNumder(e.target.value )
       if (e.target.value !== "") {
         setFlagN(true)
@@ -50,7 +50,7 @@ export const Card=()=>{
     <br />
     <label className="formLabel">cvc</label>
     <br />
-    <input   className="formInput"  type="text" placeholder="כתובת הספקה" onChange={(e) => {
+    <input   className="formInput"  type="text" placeholder="כתובת אספקה" onChange={(e) => {
       setCvc(e.target.value)
       if (e.target.value !== "") {
         setFlagC(true)
