@@ -8,6 +8,7 @@ import { ShowDetailingOrder } from "./showDetailingOrder";
 import { getDetailingOrdersThunk } from "../redux/slices/getDetailingOrderThunk";
 import { getOrdersThunk } from "../redux/slices/getOrderThunk";
 import { Nivut } from "./nivut";
+import { Maneger } from "./manegar";
 
 export const Calendar = () => {
 
@@ -26,6 +27,7 @@ export const Calendar = () => {
     const date = new Date()
     const dates = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"]
     const monthes = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const schoolName = useSelector(state => state.schoolsSlice.school.name)
 
     const dispatch = useDispatch();
     const dateTimeMonth = (m) => {
@@ -76,7 +78,9 @@ export const Calendar = () => {
 
     const navigate = useNavigate();
     return <div className="main">  
-    <Nivut></Nivut> 
+        {schoolName=="maneger" && <Maneger></Maneger> || <Nivut></Nivut>}
+
+   
         <div className="nextMonth">
         <div onClick={() => dateTimeMonth(0 - months)} className="btn">מעבר לחודש</div>
         <div onClick={() => dateTimeMonth(1)} className="btn">◀</div>

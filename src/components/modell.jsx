@@ -6,13 +6,14 @@ import { Nivut } from "./nivut";
 import './modell.css'
 import { getDetailingModelsThunk } from "../redux/slices/getDetailingModelsThunk";
 import { ShowDetailingModel } from "./showDetaillingModel";
+import { Maneger } from "./manegar";
 export const Modell = () => {
   const [dialog, setDialog] = useState(false)
   const [picture1, setPicture1] = useState()
   const modells = useSelector(state => state.modellSlice.models)
   
   const eventDate = useSelector(state => state.schoolsSlice.dateOfEvent)
-
+  const schoolName = useSelector(state => state.schoolsSlice.school.name)
   // const detailsModel=useSelector(state=>state.detailngModelsSlice.detailsModel)
   const detailsModel = useSelector(state => state.detailngModelsSlice.detailingModels)
   const dispatch = useDispatch();
@@ -36,7 +37,8 @@ export const Modell = () => {
     }
   }, [detailsModel])
   return <div>
-    <Nivut></Nivut>
+    {schoolName=="maneger" && <Maneger></Maneger> || <Nivut></Nivut>}
+   
 
     {/* <img  className='item' src="ילדה של פעם.jpg"  />
 <img  className='item' src="נעליים.jpg"  />

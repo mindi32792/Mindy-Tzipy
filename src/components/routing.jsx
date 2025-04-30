@@ -8,6 +8,9 @@ import { Payment } from "./payment"
 import { LogOn } from "./logOn"
 import { Calendar } from "./calendar"
 import { Card } from "./card"
+import { Maneger } from "./manegar"
+import { HomeManeger } from "./homeManeger"
+import { Katalog } from "./katalog"
 
 
 
@@ -17,14 +20,17 @@ export const Routing=()=>{
 
 return<>
 <Routes>
-<Route path={''} element={<LogIn/>}/>
+<Route path={''} element={<Home/>}/>
 <Route path={'/home'} element={<Home/>}/>
 <Route path={'/Orders'} element={<Orders/>}/>
 <Route path={'/Model'} element={<Modell/>}/>
 <Route path={'/logon'} element={<LogOn/>}/>
+<Route path={'/login'} element={<LogIn/>}/>
+<Route path={'/maneger'} element={<HomeManeger/>}/>
 <Route path={'/payment'} element={<Payment/>}/>
 <Route path={'/calender'} element={<Calendar/>}/>
 <Route path={'/craditCard'} element={<Card/>}/>
+<Route path={'//katalog'} element={<Katalog/>}/>
 </Routes>
 
 

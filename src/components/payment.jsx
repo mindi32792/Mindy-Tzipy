@@ -5,6 +5,7 @@ import { payment } from "../redux/slices/loginthunk";
 import { Nivut } from "./nivut";
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import { Maneger } from "./manegar";
 
 export const Payment=()=>{
 
@@ -14,6 +15,8 @@ export const Payment=()=>{
     const [flagP, setFlagP] = useState(false);
     const [phoneContact, setPhoneContact] = useState("");
     const [flagF, setFlagF] = useState(false);
+
+    const schoolName = useSelector(state => state.schoolsSlice.school.name)
 
     const newOrder = useSelector(state => state.orderSlice.order);
     
@@ -25,7 +28,8 @@ export const Payment=()=>{
       }
     return <>
     
-    <Nivut></Nivut>
+    {schoolName=="maneger" && <Maneger></Maneger> || <Nivut></Nivut>}
+
          
   <div className="formContainer">
   <br />
