@@ -2,34 +2,171 @@ import { createSlice } from "@reduxjs/toolkit"
 import { getOrdersThunk } from "./getOrderThunk"
 import { getDetailingOrdersThunk } from "./getDetailingOrderThunk"
 import { updatOrderThunk } from "./updateOrderThunk"
-
+import { saveOrderToServer } from "./saveOrderToServerThunk"
+// import axios from "axios";
 
 
 const INITIAL_STATE = {
     orders: [],
-    eventForSearch: {},
-    search: false,
-    error: '',
-    order:{idOrder:0,idSchool:0,contact:'', phoneContact:'',provisionAddress:'',dateOfOrdder:'',dateOfEvent:'',costPrice:0,detailingOrders:[]},
- 
-    token:-1,
-    status:0,
-    detailingOrders:[],
+    cart: [],
+   totalItems: 0,
+   totalPrice: 0,
+   loading: false,
+   error: null,
+   lastSavedOrder: null
 }
-// const INITIAL_STATE = {
-//     user: {username:'',pasword:''},
-//     loading: false,
-//     error: '',
-//     token:-1,
-//     status:0
-// }
+
 export const OrderSlice = createSlice({
     name: 'orderSlice',
     initialState: INITIAL_STATE,
     reducers: {
-        // updatOrder: (state, action) => {
-        //     state.order = action.payload
-        // }
+          // הוספת פריט לסל הקניות
+    addToCart: (state, action) => {
+        // בדיקה אם הפריט כבר קיים בסל
+        const existingItemIndex = state.cart.findIndex(
+          item => item.schoolId === action.payload.schoolId && 
+                 item.eventDate === action.payload.eventDate
+        );
+        
+        if (existingItemIndex >= 0) {
+          // אם ההזמנה כבר קיימת, נעדכן את הפריטים
+          const existingOrder = state.cart[existingItemIndex];
+          
+          // עדכון או הוספת פריטים להזמנה קיימת
+          action.payload.items.forEach(newItem => {
+            const existingItemIdx = existingOrder.items.findIndex(
+              item => item.idModel === newItem.idModel && item.size === newItem.size
+            );
+            
+            if (existingItemIdx >= 0) {
+              // עדכון כמות אם הפריט כבר קיים
+              existingOrder.items[existingItemIdx].count += newItem.count;
+            } else {
+              // הוספת פריט חדש להזמנה
+              existingOrder.items.push(newItem);
+            }
+          });
+          
+          // עדכון סה"כ פריטים ומחיר
+          existingOrder.totalItems = existingOrder.items.reduce(
+            (sum, item) => sum + item.count, 0
+          );
+          existingOrder.totalPrice = existingOrder.items.reduce(
+            (sum, item) => sum + (item.count * item.price), 0
+          );
+          
+          // עדכון הערות אם יש
+          if (action.payload.note) {
+            existingOrder.note = action.payload.note;
+          }
+        } else {
+          // אם ההזמנה לא קיימת, נוסיף אותה לסל
+          state.cart.push(action.payload);
+        }
+        
+        // עדכון סה"כ פריטים ומחיר בסל
+        state.totalItems = state.cart.reduce(
+          (sum, order) => sum + order.totalItems, 0
+        );
+        state.totalPrice = state.cart.reduce(
+          (sum, order) => sum + order.totalPrice, 0
+        );
+    },
+    removeFromCart: (state, action) => {
+        const { orderId, itemId, size } = action.payload;
+        
+        // מציאת ההזמנה
+        const orderIndex = state.cart.findIndex((order) => order.id === orderId);
+        
+        if (orderIndex !== -1) {
+          const order = state.cart[orderIndex];
+          
+          // מציאת הפריט
+          const itemIndex = order.items.findIndex(
+            (item) => item.idModel === itemId && item.size === size
+          );
+          
+          if (itemIndex !== -1) {
+            // חישוב הסכום שיש להפחית
+            const itemToRemove = order.items[itemIndex];
+            const itemsToRemove = itemToRemove.count;
+            const priceToRemove = itemToRemove.count * itemToRemove.price;
+            
+            // הסרת הפריט
+            order.items.splice(itemIndex, 1);
+            
+            // עדכון סה"כ בהזמנה
+            order.totalItems -= itemsToRemove;
+            order.totalPrice -= priceToRemove;
+            
+            // אם ההזמנה ריקה, הסר אותה
+            if (order.items.length === 0) {
+              state.cart.splice(orderIndex, 1);
+            }
+            
+            // עדכון סה"כ בסל
+            state.totalItems -= itemsToRemove;
+            state.totalPrice -= priceToRemove;
+          }
+        }
+      },
+      updateItemQuantity: (state, action) => {
+        const { orderId, itemId, size, quantity } = action.payload;
+        
+        // מציאת ההזמנה
+        const orderIndex = state.cart.findIndex((order) => order.id === orderId);
+        
+        if (orderIndex !== -1) {
+          const order = state.cart[orderIndex];
+          
+          // מציאת הפריט
+          const itemIndex = order.items.findIndex(
+            (item) => item.idModel === itemId && item.size === size
+          );
+          
+          if (itemIndex !== -1) {
+            const item = order.items[itemIndex];
+            
+            // חישוב ההפרש
+            const diff = quantity - item.count;
+            
+            // עדכון הכמות
+            item.count = quantity;
+            
+            // עדכון סה"כ בהזמנה
+            order.totalItems += diff;
+            order.totalPrice += diff * item.price;
+            
+            // עדכון סה"כ בסל
+            state.totalItems += diff;
+            state.totalPrice += diff * item.price;
+          }
+        }
+      },
+      placeAllOrders: (state) => {
+        // העברת כל ההזמנות מהסל להזמנות שבוצעו
+        state.cart.forEach((order) => {
+          // הוספת תאריך הזמנה ושינוי סטטוס
+          const placedOrder = {
+            ...order,
+            orderDate: new Date().toISOString(),
+            status: "התקבלה"
+          };
+          
+          state.orders.push(placedOrder);
+        });
+        
+        // ריקון הסל
+        state.cart = [];
+        state.totalItems = 0;
+        state.totalPrice = 0;
+      },
+      clearCart: (state) => {
+        state.cart = [];
+        state.totalItems = 0;
+        state.totalPrice = 0;
+      }
+
     },
     extraReducers: (builder) => {
         //add order
@@ -67,50 +204,28 @@ export const OrderSlice = createSlice({
         builder.addCase(getDetailingOrdersThunk.rejected, (state, action) => {
             console.log("action: ", action);
         }) 
-        //editEvent
-        // builder.addCase(editEventThunk.pending, (state) => {
-        // })
+        //saveOrderToServer
 
-        // builder.addCase(editEventThunk.fulfilled, (state, action) => {
-        //     console.log(action.payload);
-        //     let f= state.events.findIndex(x=> x.id===action.meta.arg.newEvent.id)
-        //     state.events[f]=action.meta.arg.newEvent
-        // })
-
-        // builder.addCase(editEventThunk.rejected, (state, action) => {
-        //     console.log("action: ", action);
-
-
-        // })
-
-//delitEvent
-// builder.addCase(deleteEventThunk.pending, (state) => {
-// })
-
-// builder.addCase(deleteEventThunk.fulfilled, (state, action) => {
-//     debugger
-//     let f = state.events.filter(x=> x.id !== action.payload)
-//     state.events = f;
-// })
-// builder.addCase(deleteEventThunk.rejected, (state, action) => {
-//     console.log("action: ", action);
-// })
-
-//searchEvent
-// builder.addCase(searchThunk.pending, (state) => {
-// })
-// builder.addCase(searchThunk.fulfilled, (state, action) => {
-//     state.eventForSearch = action.payload.events;
-//     if(state.eventForSearch.length === 0){
-//         state.error = 'אין תוצאות מתאימות';
-//        }
-//        state.search = true;
-// })
-// builder.addCase(searchThunk.rejected, (state, action) => {
-//     console.log("action: ", action);
-// })
+       
+         builder.addCase(saveOrderToServer.pending, (state) => {
+          state.loading = true;
+          state.error = null;
+        })
+        builder.addCase(saveOrderToServer.fulfilled, (state, action) => {
+          state.loading = false;
+          state.lastSavedOrder = action.payload;
+        })
+        builder.addCase(saveOrderToServer.rejected, (state, action) => {
+          state.loading = false;
+          state.error = action.payload || "שגיאה בשמירת ההזמנה";
+        });
    }
   })
 //   export const { updatOrder } = OrderSlice.actions;
-  export const { } = OrderSlice.actions;
-//  export default OrderSlice.reducer
+ export const { 
+    addToCart,
+    removeFromCart,
+    updateItemQuantity,
+    placeAllOrders,
+    clearCart} = OrderSlice.actions;
+ export default OrderSlice.reducer
