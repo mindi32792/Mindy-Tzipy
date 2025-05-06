@@ -27,6 +27,9 @@ export const Maneger = () => {
     const calender = () => {
       navigate(`/calender`)
    }
+   const home = () => {
+      navigate(`/maneger`)
+   }
    return <div>
       <div className="header">
          <div className='navigate' onClick={() => goToModel()}>תלבושות</div>
@@ -34,6 +37,7 @@ export const Maneger = () => {
          {/* <div className='navigate' onClick={() => login()}> רישום </div> */}
          <div className='navigate' onClick={() => payment()}> תשלום </div>
            <div className='navigate' onClick={() => calender()}> יומן הזמנות </div>
+           <div className='navigate' onClick={() =>home()}>דף הבית</div>
       </div>
       {/* <img  className='logo' src="logo.jpg"  /> */}
       {/* {dialog === true && <LogIn />} */}

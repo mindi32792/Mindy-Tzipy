@@ -11,6 +11,8 @@ import { Card } from "./card"
 import { Maneger } from "./manegar"
 import { HomeManeger } from "./homeManeger"
 import { Katalog } from "./katalog"
+import { Cart } from "./Cart"
+import { OrderConfirmation } from "./OrderConfirmation"
 
 
 
@@ -31,6 +33,10 @@ return<>
 <Route path={'/calender'} element={<Calendar/>}/>
 <Route path={'/craditCard'} element={<Card/>}/>
 <Route path={'//katalog'} element={<Katalog/>}/>
+<Route path={'/sal'} element={<Cart/>}/>
+<Route path={'/order-confirmation'} element={<OrderConfirmation />}/> 
+
+
 </Routes>
 
 
