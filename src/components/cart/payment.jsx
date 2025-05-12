@@ -1,11 +1,11 @@
 
 // import "./payment.css"
 import { useState } from "react";
-import { payment } from "../redux/slices/loginthunk";
-import { Nivut } from "./nivut";
+// import { payment } from "../redux/slices/loginthunk";
+import { Nivut } from "../homePage/nivut";
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
-import { Maneger } from "./manegar";
+import { Maneger } from "../homePage/manegar";
 
 export const Payment=()=>{
 

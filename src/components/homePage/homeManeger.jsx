@@ -49,12 +49,12 @@
 //   );
 // }
 import { useNavigate } from 'react-router-dom';
-import './home.css'
-import { Orders } from './orders';
+import '../style/home.css'
+// import { Orders } from './orders';
 import { Link } from 'react-router-dom';
 import { Maneger } from './manegar';
 import { useSelector } from 'react-redux';
-import { LogoutButton } from './LogoutButton';
+import { LogoutButton } from '../logIn/LogoutButton';
 import { useEffect, useState } from 'react';
 
 export const HomeManeger = () => {

@@ -101,9 +101,9 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import "./logIn.css";
-import { logOnThunk } from "../redux/slices/logOnThunk";
-import { setEventDate, setLoggedOut } from "../redux/slices/schoolsSlice";
+import "../style/logIn.css";
+import { logOnThunk } from "../../redux/slices/logOnThunk";
+import { setEventDate, setLoggedOut } from "../../redux/slices/schoolsSlice";
 
 export const LogIn = () => {
   const [flagN, setFlagFN] = useState(false);

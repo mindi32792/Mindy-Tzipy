@@ -169,15 +169,15 @@
 // }
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux";
-import { getOrdersThunk } from "../redux/slices/getOrderThunk";
-import { useNavigate } from "react-router-dom";
-import './orders.css'
-import { Home } from "./home";
-import { Nivut } from "./nivut";
+import { getOrdersThunk } from "../../redux/slices/getOrderThunk";
+// import { useNavigate } from "react-router-dom";
+import '../style/orders.css'
+// import { Home } from "../home";
+import { Nivut } from "../homePage/nivut";
 import { useEffect, useState } from "react";
-import { getDetailingOrdersThunk } from "../redux/slices/getDetailingOrderThunk";
+import { getDetailingOrdersThunk } from "../../redux/slices/getDetailingOrderThunk";
 import { DetailingOrder, ShowDetailingOrder } from "./showDetailingOrder";
-import { Maneger } from "./manegar";
+import { Maneger } from "../homePage/manegar";
 
 export const Orders = () => {
     const orders = useSelector(state => state.orderSlice.orders)

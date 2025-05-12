@@ -96,7 +96,8 @@
 //     )}
 
 import { useEffect, useRef } from "react";
-import './showDetailingOrder.css'
+
+import '../style/showDetailingOrder.css'
 import { useDispatch } from "react-redux";
 
 export const ShowDetailingOrder = (prop) => {

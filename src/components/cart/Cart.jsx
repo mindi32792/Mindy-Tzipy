@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Nivut } from "./nivut";
-import { removeFromCart, updateItemQuantity, placeAllOrders, clearCart } from "../redux/slices/OrderSlice";
+import { Nivut } from "../homePage/nivut";
+import { removeFromCart, updateItemQuantity, placeAllOrders, clearCart } from "../../redux/slices/OrderSlice";
 
-import "./Cart.css";
-import { saveOrderToServer } from "../redux/slices/saveOrderToServerThunk";
+import "../style/Cart.css";
+import { saveOrderToServer } from "../../redux/slices/saveOrderToServerThunk";
 
 export const Cart = () => {
   const dispatch = useDispatch();
@@ -83,17 +83,20 @@ export const Cart = () => {
           });
         });
       });
-      
-   await dispatch(saveOrderToServer(serverOrder)).unwrap();
+      // .unwrap()
+   await dispatch(saveOrderToServer(serverOrder));
+   alert("asdfsa");
    // עדכון סטטוס ההזמנות במערכת
-   dispatch(placeAllOrders());
+    dispatch(placeAllOrders());
    setOrderPlaced(true);
    
    // ניווט לדף אישור הזמנה אחרי 2 שניות
+   alert("navigat");
    setTimeout(() => {
      navigate('/order-confirmation');
    }, 2000);
  } catch (err) {
+   alert(err);
    console.error("שגיאה בשמירת ההזמנה:", err);
    alert("אירעה שגיאה בשמירת ההזמנה. אנא נסה שנית.");
  } finally {

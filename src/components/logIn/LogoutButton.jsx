@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setLoggedOut, resetUser } from '../redux/slices/schoolsSlice';
-import './LogoutButton.css';
+import { setLoggedOut, resetUser } from '../../redux/slices/schoolsSlice';
+import '../style/LogoutButton.css';
 
 export const LogoutButton = () => {
   const dispatch = useDispatch();

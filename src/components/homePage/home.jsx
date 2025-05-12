@@ -95,13 +95,13 @@
 //   );
 // }
 import { useNavigate } from 'react-router-dom';
-import './home.css'
-import { Orders } from './orders';
+import '../style/home.css'
+// import { Orders } from './orders';
 import { Link } from 'react-router-dom';
-import { Nivut } from './nivut';
+import { Nivut } from '../homePage/nivut';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { LogoutButton } from './LogoutButton';
+import { LogoutButton } from '../logIn/LogoutButton';
 
 export const Home = () => {
   const navigate = useNavigate();

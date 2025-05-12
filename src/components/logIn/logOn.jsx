@@ -66,9 +66,9 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom"; 
 import { useSelector } from "react-redux";
-import "./logIn.css"; // משתמש באותו קובץ CSS
-import { loginThunk } from "../redux/slices/loginthunk";
-import { Nivut } from "./nivut";
+import "../style/logIn.css"; // משתמש באותו קובץ CSS
+import { loginThunk } from "../../redux/slices/loginthunk";
+// import { Nivut } from "./nivut";
 
 export const LogOn = () => {
   const [flagN, setFlagFN] = useState(false);

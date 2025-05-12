@@ -71,12 +71,12 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux";
-import { getModelThunk } from "../redux/slices/getModelthunk";
-import { Nivut } from "./nivut";
-import './modell.css'
-import { getDetailingModelsThunk } from "../redux/slices/getDetailingModelsThunk";
-import { ShowDetailingModel } from "./showDetaillingModel";
-import { Maneger } from "./manegar";
+import { getModelThunk } from "../../redux/slices/getModelthunk";
+import { Nivut } from "../homePage/nivut";
+import '../style/modell.css'
+import { getDetailingModelsThunk } from "../../redux/slices/getDetailingModelsThunk";
+import { ShowDetailingModel } from "../modells/showDetaillingModel";
+import { Maneger } from "../homePage/manegar";
 
 export const Modell = () => {
   const [dialog, setDialog] = useState(false)

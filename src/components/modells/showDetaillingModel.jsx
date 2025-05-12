@@ -51,8 +51,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import './showDetailingModell.css';
-import { addToCart } from "../redux/slices/OrderSlice"; // נניח שיש לנו פעולה כזו ב-orderSlice
+import '../style/showDetailingModell.css';
+import { addToCart } from "../../redux/slices/OrderSlice"; // נניח שיש לנו פעולה כזו ב-orderSlice
 
 export const ShowDetailingModel = (prop) => {
   debugger

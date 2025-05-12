@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Nivut } from "./nivut";
-import "./OrderConfirmation.css";
-
+import { Nivut } from "../homePage/nivut";
+import "../style/OrderConfirmation.css";
 export const OrderConfirmation = () => {
   const navigate = useNavigate();
   const orders = useSelector(state => state.orderSlice.orders);
@@ -125,13 +124,13 @@ export const OrderConfirmation = () => {
           </div>
         </div>
         
-        <div className="confirmation-actions">
-          <button 
+         <div className="confirmation-actions">
+          {/*<button 
             className="action-button primary"
             onClick={() => navigate('/orders')}
           >
             צפייה בכל ההזמנות
-          </button>
+          </button> */}
           
           <button 
             className="action-button secondary"
