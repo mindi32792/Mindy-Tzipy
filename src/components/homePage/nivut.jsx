@@ -22,10 +22,7 @@ export const Nivut = () => {
    const goToOrders = () => {
       navigate(`/Orders`)
    }
-   // const login = () => {
-   //    // setDialog(true)
-   //    navigate(`/logIn`)
-   // }
+
    const payment = () => {
       navigate(`/payment`)
    }
@@ -47,7 +44,7 @@ export const Nivut = () => {
          <div className='navigate' onClick={() => katalog()}> לצפיה בקטלוגים שלנו </div>
          <div className='navigate' onClick={() =>home()}>דף הבית</div>
          <div className='navigate' onClick={() =>cart()}>לצפיה בסל</div>
-           <button onClick={()=>nivut()}>התחברות למערכת</button>
+           <button onClick={()=>nivut()}>התחברות</button>
 
 
       </div>

@@ -95,8 +95,7 @@
 //   );
 // }
 import { useNavigate } from 'react-router-dom';
-import '../style/home.css'
-// import { Orders } from './orders';
+import '../style/home.css';
 import { Link } from 'react-router-dom';
 import { Nivut } from '../homePage/nivut';
 import { useSelector } from 'react-redux';
@@ -152,7 +151,7 @@ export const Home = () => {
   return (
     <div className="home-container">
       <Nivut />
-      <LogoutButton />{/* הוספת כפתור ההתנתקות */}
+      
       {/* הוספת באנר ברכה למשתמש */}
       <div className="welcome-banner">
         <div className="welcome-content">
@@ -167,7 +166,7 @@ export const Home = () => {
       
       <div className="hero-section">
         <div className="hero-content">
-          <h1 className="hero-title">תלבושות יוקרתיות לכל אירוע</h1>
+          <h1 className="section-title hero-title">תלבושות יוקרתיות לכל אירוע</h1>
           <p className="hero-subtitle">השכרת תלבושות איכותיות להופעות, מסיבות ואירועים מיוחדים</p>
           <div className="hero-buttons">
             <Link to="/Model" className="hero-btn hero-btn-primary">צפייה בתלבושות</Link>
@@ -195,6 +194,11 @@ export const Home = () => {
       </section>
       
       <img className='logo' src="logo100.png" alt="לוגו האתר" />
+      
+      {/* כפתור התנתקות בתחתית הדף */}
+      <div className="footer-logout">
+        <LogoutButton />
+      </div>
     </div>
   );
 }
