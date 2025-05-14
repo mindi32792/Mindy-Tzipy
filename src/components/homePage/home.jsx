@@ -94,6 +94,7 @@
 //     </div>
 //   );
 // }
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../style/home.css';
 import { Link } from 'react-router-dom';
@@ -101,6 +102,7 @@ import { Nivut } from '../homePage/nivut';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { LogoutButton } from '../logIn/LogoutButton';
+
 
 export const Home = () => {
   const navigate = useNavigate();

@@ -1,9 +1,11 @@
+import React from 'react';
 import '../style/home.css'
 // import { Orders } from './orders';
 // import { Link } from 'react-router-dom';
 // import { useState } from 'react';
 // import { LogIn } from './logIn';
 import { useNavigate } from 'react-router-dom';
+
 // import { payment } from './payment';
 
 export const Maneger = () => {
@@ -30,6 +32,9 @@ export const Maneger = () => {
    const home = () => {
       navigate(`/maneger`)
    }
+   const ModelManager = () => {
+      navigate(`/ModelManager`)
+   }
    return <div>
       <div className="header">
          <div className='navigate' onClick={() => goToModel()}>תלבושות</div>
@@ -38,6 +43,7 @@ export const Maneger = () => {
          {/* <div className='navigate' onClick={() => payment()}> תשלום </div> */}
            <div className='navigate' onClick={() => calender()}> יומן הזמנות </div>
            <div className='navigate' onClick={() =>home()}>דף הבית</div>
+         <div className='navigate' onClick={() =>ModelManager()}> changes</div>
       </div>
       {/* <img  className='logo' src="logo.jpg"  /> */}
       {/* {dialog === true && <LogIn />} */}

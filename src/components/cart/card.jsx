@@ -1,4 +1,4 @@
-
+import React from 'react';
 // import "./payment.css"
 import { useState } from "react";
 // import { payment } from "../redux/slices/loginthunk";
