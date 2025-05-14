@@ -103,7 +103,7 @@ export const HomeManeger = () => {
       return (
     <div className="home-container">
       <Maneger></Maneger>
-      <LogoutButton />{/* הוספת כפתור ההתנתקות */}
+      {/* <LogoutButton />הוספת כפתור ההתנתקות */}
 
        {/* הוספת באנר ברכה למשתמש */}
        <div className="welcome-banner">

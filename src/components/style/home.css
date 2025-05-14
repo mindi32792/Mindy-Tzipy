@@ -41,6 +41,7 @@ body {
   position: relative;
   overflow: hidden;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  
 }
  
 .navigate::before {
@@ -347,6 +348,12 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  width: 150px;
+  height: 50px;
 }
 
 .logout-button:hover {

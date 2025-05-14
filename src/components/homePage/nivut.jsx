@@ -1,3 +1,4 @@
+import { LogoutButton } from '../logIn/LogoutButton';
 import '../style/home.css';
 // import { Orders } from './orders';
 // import { Link } from 'react-router-dom';
@@ -44,7 +45,8 @@ export const Nivut = () => {
          <div className='navigate' onClick={() => katalog()}> לצפיה בקטלוגים שלנו </div>
          <div className='navigate' onClick={() =>home()}>דף הבית</div>
          <div className='navigate' onClick={() =>cart()}>לצפיה בסל</div>
-           <button onClick={()=>nivut()}>התחברות</button>
+           {/* <button onClick={()=>nivut()}>התחברות</button> */}
+           {/* <LogoutButton />הוספת כפתור ההתנתקות */}
 
 
       </div>

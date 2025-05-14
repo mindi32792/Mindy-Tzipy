@@ -20,7 +20,7 @@ export const LogoutButton = () => {
   
   return (
     <button className="logout-button" onClick={handleLogout}>
-      <i className="fas fa-sign-out-alt"></i> התנתק
+      <i className="fas fa-sign-out-alt"></i> התנתק->
     </button>
   );
 };

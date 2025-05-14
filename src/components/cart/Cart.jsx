@@ -85,13 +85,10 @@ export const Cart = () => {
       });
       // .unwrap()
    await dispatch(saveOrderToServer(serverOrder));
-   alert("asdfsa");
    // עדכון סטטוס ההזמנות במערכת
     dispatch(placeAllOrders());
    setOrderPlaced(true);
-   
    // ניווט לדף אישור הזמנה אחרי 2 שניות
-   alert("navigat");
    setTimeout(() => {
      navigate('/order-confirmation');
    }, 2000);
