@@ -1,4 +1,6 @@
-
+import katalogImage1 from '../../assets/katalog1.png';
+import katalogImage2 from '../../assets/katalog2.png';
+import React from 'react';
 import '../style/katalog.css';
 import '../style/home.css';
 // import { Orders } from './orders';
@@ -38,18 +40,6 @@ export const Katalog = () => {
                <h1 className="katalog-title">קטלוג המוצרים היוקרתי שלנו</h1>
                <p className="katalog-subtitle">
                   גלו את המגוון העשיר של המוצרים האיכותיים שלנו בקטלוגים המעוצבים. 
-                  בחרו את השנה המתאימה לכם וצפו במ
-
-Copy
-
-
-Katalog.jsx
-המשך מאיפה שעצרת
-
-
-
-Context
-— none fetched
                   בחרו את השנה המתאימה לכם וצפו במבחר המוצרים המובילים בתחום, עם מפרטים מלאים ותמונות איכותיות.
                </p>
             </div>
@@ -59,7 +49,8 @@ Context
          <div className="katalog-container">
             <div className="katalog-card">
                <div className="katalog-image">
-                  <img src="katalog1.png" alt="קטלוג 2020" />
+               <img src={katalogImage1} alt="קטלוג 2020" />
+    
                   <div className="katalog-year">2020</div>
                </div>
                <div className="katalog-content">
@@ -76,7 +67,7 @@ Context
             
             <div className="katalog-card">
                <div className="katalog-image">
-                  <img src="katalog2.png" alt="קטלוג 2022" />
+                  <img src={katalogImage2} alt="קטלוג 2022" />
                   <div className="katalog-year">2022</div>
                </div>
                <div className="katalog-content">

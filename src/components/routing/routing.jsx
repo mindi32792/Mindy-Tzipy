@@ -1,3 +1,4 @@
+import React from 'react';
 import { Orders } from "../orders/orders"
 import { Home } from "../homePage/home"
 import { Modell } from "../modells/modell"
@@ -13,6 +14,7 @@ import { HomeManeger } from "../homePage/homeManeger"
 import { Katalog } from "../modells/katalog"
 import { Cart } from "../cart/Cart"
 import { OrderConfirmation } from "../orders/OrderConfirmation"
+import { ModelManager } from '../homePage/ModelManager';
 
 
 
@@ -35,6 +37,7 @@ return<>
 <Route path={'//katalog'} element={<Katalog/>}/>
 <Route path={'/sal'} element={<Cart/>}/>
 <Route path={'/order-confirmation'} element={<OrderConfirmation />}/> 
+<Route path={'/ModelManager'} element={<ModelManager />}/> 
 
 
 </Routes>
