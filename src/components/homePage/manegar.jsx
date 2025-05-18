@@ -1,9 +1,11 @@
+import React from 'react';
 import '../style/home.css'
 // import { Orders } from './orders';
 // import { Link } from 'react-router-dom';
 // import { useState } from 'react';
 // import { LogIn } from './logIn';
 import { useNavigate } from 'react-router-dom';
+
 // import { payment } from './payment';
 
 export const Maneger = () => {
@@ -30,6 +32,7 @@ export const Maneger = () => {
    const home = () => {
       navigate(`/maneger`)
    }
+  
    return <div>
       <div className="header">
          <div className='navigate' onClick={() => goToModel()}>תלבושות</div>

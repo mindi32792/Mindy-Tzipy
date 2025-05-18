@@ -1,4 +1,6 @@
+
 import { LogoutButton } from '../logIn/LogoutButton';
+import React from 'react';
 import '../style/home.css';
 // import { Orders } from './orders';
 // import { Link } from 'react-router-dom';

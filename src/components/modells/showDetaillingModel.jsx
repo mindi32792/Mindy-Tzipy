@@ -48,7 +48,7 @@
 //     </dialog>
 // }
 
-
+import React from 'react';
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import '../style/showDetailingModell.css';

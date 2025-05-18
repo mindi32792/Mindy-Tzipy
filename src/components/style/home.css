@@ -1,4 +1,4 @@
-עיצוב כללי
+/* עיצוב כללי */
 * {
   margin: 0;
   padding: 0;
@@ -116,7 +116,7 @@ body {
  
 /* סקשן הירו */
 .hero-section {
-  background-image: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(255, 46, 99, 0.8)), url('../../../public/צילום\ מסך\ 2025-04-30\ 153225.png');
+  background-image: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(255, 46, 99, 0.8)), url('../../assets/12.png');
   background-size: cover;
   background-position: center;
   color: white;
@@ -138,7 +138,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('../../../public/logo192.png');
+  /* background: url('../../../public/logo192.png'); */
   opacity: 0.1;
   z-index: 1;
 }
