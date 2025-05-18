@@ -31,6 +31,9 @@ export const Maneger = () => {
    }
    const home = () => {
       navigate(`/maneger`)
+   } 
+   const ManageModels = () => {
+      navigate(`/ManageModels`)
    }
   
    return <div>
@@ -40,6 +43,7 @@ export const Maneger = () => {
          {/* <div className='navigate' onClick={() => login()}> רישום </div> */}
          {/* <div className='navigate' onClick={() => payment()}> תשלום </div> */}
            <div className='navigate' onClick={() => calender()}> יומן הזמנות </div>
+             <div className='navigate' onClick={() => ManageModels()}>ניהול דגמים</div>
            <div className='navigate' onClick={() =>home()}>דף הבית</div>
       </div>
       {/* <img  className='logo' src="logo.jpg"  /> */}

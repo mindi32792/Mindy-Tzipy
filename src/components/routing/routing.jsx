@@ -14,6 +14,7 @@ import { HomeManeger } from "../homePage/homeManeger"
 import { Katalog } from "../modells/katalog"
 import { Cart } from "../cart/Cart"
 import { OrderConfirmation } from "../orders/OrderConfirmation"
+import { ManageModels } from '../modells/ManageModels';
 
 
 
@@ -36,6 +37,7 @@ return<>
 <Route path={'//katalog'} element={<Katalog/>}/>
 <Route path={'/sal'} element={<Cart/>}/>
 <Route path={'/order-confirmation'} element={<OrderConfirmation />}/> 
+<Route path={'/ManageModels'} element={<ManageModels />}/> 
 
 
 </Routes>

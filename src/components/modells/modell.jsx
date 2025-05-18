@@ -166,7 +166,7 @@ export const Modell = () => {
           filteredModels.map((model) => (
             <div className="model-card" key={model.idModel}>
               <div className="model-image-container">
-                <img className="model-image" src={`${model.picture}`} alt={`דגם ${model.idModel}`} />
+                <img className="model-image" src={`https://localhost:7042/img/${model.picture}`}  />
                 <div className="model-overlay">
                   <button 
                     className="details-button"
