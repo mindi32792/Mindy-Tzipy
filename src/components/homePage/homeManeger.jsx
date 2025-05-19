@@ -163,6 +163,10 @@ export const HomeManeger = () => {
       </section>
       
       <img className='logo' src="logo100.png" alt="לוגו האתר" />
+       {/* כפתור התנתקות בתחתית הדף */}
+       <div className="footer-logout">
+        <LogoutButton />
+      </div>
     </div>
   );
 }

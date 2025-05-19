@@ -3,6 +3,7 @@ import { getOrdersThunk } from "./getOrderThunk"
 import { getDetailingOrdersThunk } from "./getDetailingOrderThunk"
 import { updatOrderThunk } from "./updateOrderThunk"
 import { saveOrderToServer } from "./saveOrderToServerThunk"
+import { getOrderByIdThunk } from "./getOrderByIdThunk"
 // import axios from "axios";
 
 
@@ -13,7 +14,8 @@ const INITIAL_STATE = {
    totalPrice: 0,
    loading: false,
    error: null,
-   lastSavedOrder: null
+   lastSavedOrder: null,
+   order: null,
 }
 
 export const OrderSlice = createSlice({
@@ -204,6 +206,16 @@ export const OrderSlice = createSlice({
         builder.addCase(getDetailingOrdersThunk.rejected, (state, action) => {
             console.log("action: ", action);
         }) 
+
+        // getOrderByIdThunk
+        builder.addCase(getOrderByIdThunk.pending, (state) => {
+        })
+        builder.addCase(getOrderByIdThunk.fulfilled, (state, action) => {
+          state.order = action.payload;
+        })
+        builder.addCase(getOrderByIdThunk.rejected, (state, action) => {
+        }) 
+
         //saveOrderToServer
 
        

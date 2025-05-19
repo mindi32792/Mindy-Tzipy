@@ -1039,11 +1039,9 @@ export const ManageModels = () => {
                       <div>
                         <strong>מידה:</strong> {detail.size}
                       </div>
+          
                       <div>
-                        <strong>כמות פנויה לתאריך:</strong> {detail.countByDate}
-                      </div>
-                      <div>
-                        <strong>כמות:</strong> {detail.count}
+                        <strong> כמות במלאי:</strong> {detail.count}
                       </div>
                       <div className="detail-actions">
                         <button className="btn-primary" onClick={() => openEditDetail(detail)}>עריכה</button>
