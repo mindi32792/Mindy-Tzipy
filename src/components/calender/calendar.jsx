@@ -148,9 +148,10 @@ export const Calendar = () => {
             }
           </div>
           <div className="calendar-nav" role="navigation" aria-label="ניווט בלוח שנה">
-            <button className="calendar-nav-btn" aria-label="חודש קודם" onClick={goToPrevious}>◀</button>
+            <button className="calendar-nav-btn" aria-label="חודש קודם" onClick={goToPrevious}>▶</button>
             <button className="calendar-today-btn" aria-label="היום" onClick={goToToday}>היום</button>
-            <button className="calendar-nav-btn" aria-label="חודש הבא" onClick={goToNext}>▶</button>
+            <button className="calendar-nav-btn" aria-label="חודש הבא" onClick={goToNext}>◀</button>
+
           </div>
         </div>
 

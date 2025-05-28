@@ -38,7 +38,7 @@ export const Maneger = () => {
   
    return <div>
       <div className="header">
-         <div className='navigate' onClick={() => goToModel()}>תלבושות</div>
+         {/* <div className='navigate' onClick={() => goToModel()}>תלבושות</div> */}
          <div className='navigate' onClick={() => goToOrders()}>הזמנות</div>
          {/* <div className='navigate' onClick={() => login()}> רישום </div> */}
          {/* <div className='navigate' onClick={() => payment()}> תשלום </div> */}

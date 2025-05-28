@@ -388,7 +388,7 @@ export const ShowDetailingOrder = ({ detailingOrders, setd }) => {
             </section>
 
             <section className="order-items">
-                <h3>פרטי פריטים בהזמנה</h3>
+                <h3> פריטים בהזמנה</h3>
                 {detailingOrders?.length > 0 ? (
                     detailingOrders.map((item, idx) => (
                         <article

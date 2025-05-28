@@ -1,53 +1,4 @@
-// import { useNavigate } from 'react-router-dom';
-// import './home.css'
-// import { Orders } from './orders';
-// import { Link } from 'react-router-dom';
-// import { Maneger } from './manegar';
 
-
-// export const HomeManeger=()=>{
- 
-// return <div>
-// <Maneger></Maneger>
-
-// <img  className='logo' src="logo100.png"  /></div>
-
-
-// }
-// import { useNavigate } from 'react-router-dom';
-// import './home.css'
-// import { Orders } from './orders';
-// import { Link } from 'react-router-dom';
-// import { Maneger } from './manegar';
-
-// export const HomeManeger = () => {
-//   return (
-//     <div className="home-container">
-//       <Maneger></Maneger>
-      
-//       <div className="hero-section">
-//         <div className="hero-content">
-//           <h1 className="hero-title">ניהול תלבושות</h1>
-//           <p className="hero-subtitle">ברוכים הבאים למערכת הניהול - כאן תוכלו לנהל את מלאי התלבושות וההזמנות</p>
-//           <div className="hero-buttons">
-//             <Link to="/Model" className="hero-btn hero-btn-primary">ניהול תלבושות</Link>
-//             <Link to="/Orders" className="hero-btn hero-btn-secondary">צפייה בהזמנות</Link>
-//           </div>
-//         </div>
-//       </div>
-      
-//       <section className="categories-section">
-//         <h2 className="section-title">סטטיסטיקות מערכת</h2>
-//         <div className="categories-grid">
-//           {/* כאן יוצגו סטטיסטיקות למנהל */}
-//           {/* אפשר להוסיף בהמשך */}
-//         </div>
-//       </section>
-      
-//       <img className='logo' src="logo100.png" alt="לוגו האתר" />
-//     </div>
-//   );
-// }
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../style/home.css'
@@ -122,7 +73,7 @@ export const HomeManeger = () => {
           <h1 className="hero-title">ניהול תלבושות</h1>
           <p className="hero-subtitle">ברוכים הבאים למערכת הניהול - כאן תוכלו לנהל את מלאי התלבושות וההזמנות</p>
           <div className="hero-buttons">
-            <Link to="/Model" className="hero-btn hero-btn-primary">ניהול תלבושות</Link>
+            <Link to="/ManageModels" className="hero-btn hero-btn-primary">ניהול תלבושות</Link>
             <Link to="/Orders" className="hero-btn hero-btn-secondary">צפייה בהזמנות</Link>
           </div>
         </div>

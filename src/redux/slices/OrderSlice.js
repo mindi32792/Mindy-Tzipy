@@ -4,6 +4,7 @@ import { getDetailingOrdersThunk } from "./getDetailingOrderThunk"
 import { updatOrderThunk } from "./updateOrderThunk"
 import { saveOrderToServer } from "./saveOrderToServerThunk"
 import { getOrderByIdThunk } from "./getOrderByIdThunk"
+import { deleteOrderThunk } from "./deleteOrderThunk"
 // import axios from "axios";
 
 
@@ -195,6 +196,17 @@ export const OrderSlice = createSlice({
         builder.addCase(getOrdersThunk.rejected, (state, action) => {
             console.log("action: ", action);
         })
+  
+        //getOrder
+        builder.addCase(deleteOrderThunk.pending, (state) => {
+        })
+        builder.addCase(deleteOrderThunk.fulfilled, (state, action) => {
+            debugger
+            state.orders = action.payload;
+        })
+        builder.addCase(deleteOrderThunk.rejected, (state, action) => {
+            console.log("action: ", action);
+        })
 
           //getDetailing
           builder.addCase(getDetailingOrdersThunk.pending, (state) => {
@@ -217,8 +229,6 @@ export const OrderSlice = createSlice({
         }) 
 
         //saveOrderToServer
-
-       
          builder.addCase(saveOrderToServer.pending, (state) => {
           state.loading = true;
           state.error = null;

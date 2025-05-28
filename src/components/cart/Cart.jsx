@@ -72,6 +72,7 @@ export const Cart = () => {
           dateOfOrdder: new Date().toISOString(),
           dateOfEvent: cart[0]?.eventDate || new Date().toISOString(), // אם יש כמה הזמנות, נשתמש בראשונה
           costPrice: totalPrice,
+          schoolName: school.name,
           detailingOrders: []
         };
           // המרת פריטי הסל למבנה הנדרש עבור detailingOrders

@@ -494,7 +494,7 @@
   }
   
   .orders-table th {
-    background-color: #3498db;
+    background-color: #4a505b;
     color: white;
     padding: 12px 15px;
     text-align: right;
@@ -527,7 +527,7 @@
   }
   
   .details-btn:hover {
-    background-color: #2980b9;
+    bbackground-color: #2980b9;
   }
   
   .no-results {

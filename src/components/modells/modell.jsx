@@ -11,7 +11,7 @@
 //   const [dialog, setDialog] = useState(false)
 //   const [picture1, setPicture1] = useState()
 //   const modells = useSelector(state => state.modellSlice.models)
-  
+
 //   const eventDate = useSelector(state => state.schoolsSlice.dateOfEvent)
 //   const schoolName = useSelector(state => state.schoolsSlice.school.name)
 //   // const detailsModel=useSelector(state=>state.detailngModelsSlice.detailsModel)
@@ -38,33 +38,12 @@
 //   }, [detailsModel])
 //   return <div>
 //     {schoolName=="maneger" && <Maneger></Maneger> || <Nivut></Nivut>}
-   
 
-//     {/* <img  className='item' src="ילדה של פעם.jpg"  />
-// <img  className='item' src="נעליים.jpg"  />
-// <img  className='item' src="חייל אנגלי.jpg"  /> */}
-//     <div className="aba">
-//       {modells && modells.length > 0 && modells.map((e) => {
 
-//         return <div className="model">
-//           <lable >דגם: {e.idModel}</lable>
-//           <br />
-//           <lable >קטגוריה: {e.kategory}</lable>
-//           <br />
-//           <lable >מחיר: {e.price}</lable>
-//           <br />
-//           <img className='item' src={`${e.picture}`} />
-//           <br />
-//           <button onClick={() => showDetails(e.idModel, e.picture)}>details</button>
-//         </div>
 
-//       })}
 
-//     </div>
-//     {dialog === true && <ShowDetailingModel detailingModel={detailsModel} setd={setDialog} picture={picture1} />}
-//   </div>
 
-// }
+
 
 
 import React from 'react';
@@ -89,9 +68,9 @@ export const Modell = () => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
   const [filterCategory, setFilterCategory] = useState("");
-  
+
   console.log(modells);
-  
+
   useEffect(() => {
     if (modells.length == 0) getModels()
   }, [])
@@ -126,15 +105,16 @@ export const Modell = () => {
   // יצירת רשימת קטגוריות ייחודיות
   const categories = [...new Set(modells.map(model => model.kategory))];
 
-  return (
+    // const Modell = ({ title, image, description }) => {
+        return (
     <div className="models-page">
       {schoolName=="maneger" && <Maneger></Maneger> || <Nivut></Nivut>}
       
       <div className="models-header">
         <h1 className="models-title">קטלוג תלבושות</h1>
         <p className="models-subtitle">בחרו את התלבושות המושלמות לאירוע שלכם</p>
-      </div>
-      
+            </div>
+
       <div className="models-filters">
         <div className="search-container">
           <input 
@@ -146,7 +126,7 @@ export const Modell = () => {
           />
           <i className="fas fa-search search-icon"></i>
         </div>
-        
+
         <div className="category-filter">
           <select 
             value={filterCategory} 
@@ -199,7 +179,17 @@ export const Modell = () => {
         />
       )}
     </div>
-  );
-}
+        );
+    };
+
+
+
+
+
+
+
+
+
+
 
 

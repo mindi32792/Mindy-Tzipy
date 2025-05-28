@@ -330,6 +330,8 @@ import { useEffect, useState } from "react";
 import { getDetailingOrdersThunk } from "../../redux/slices/getDetailingOrderThunk";
 import { ShowDetailingOrder } from "./showDetailingOrder";
 import { Maneger } from "../homePage/manegar";
+import { ShowDetailingOrder2 } from './showDetailingOrder2';
+import { deleteOrderThunk } from '../../redux/slices/deleteOrderThunk';
 
 // פונקציה לפורמט תאריך ל-dd/mm/yyyy
 const formatDate = (dateStr) => {
@@ -400,7 +402,7 @@ export const Orders = () => {
 
     const deleteOrder = async (id) => {
         if (window.confirm("האם אתה בטוח שברצונך למחוק הזמנה זו?")) {
-            // await dispatch(deleteOrderThunk(id));
+             await dispatch(deleteOrderThunk(id));
             // רענון הזמנות לאחר מחיקה
             getOrders();
         }
@@ -500,7 +502,7 @@ export const Orders = () => {
                 </table>
             </div>
 
-            {dialog && <ShowDetailingOrder detailingOrders={detailingO} setd={setDialog} />}
+            {dialog && <ShowDetailingOrder2 detailingOrders={detailingO} setd={setDialog} />}
         </div>
     );
 }
