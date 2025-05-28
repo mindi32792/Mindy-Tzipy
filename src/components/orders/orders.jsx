@@ -402,7 +402,7 @@ export const Orders = () => {
 
     const deleteOrder = async (id) => {
         if (window.confirm("האם אתה בטוח שברצונך למחוק הזמנה זו?")) {
-             await dispatch(deleteOrderThunk(id));
+            //  await dispatch(deleteOrderThunk(id));
             // רענון הזמנות לאחר מחיקה
             getOrders();
         }

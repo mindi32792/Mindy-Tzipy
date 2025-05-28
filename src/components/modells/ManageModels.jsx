@@ -13,6 +13,7 @@ import { Maneger } from '../homePage/manegar'
 import { updateDetailingModelThunk } from '../../redux/slices/updateDetailingModelThunk';
 import { addDetailingModelThunk } from '../../redux/slices/addDetailingModelThunk';
 import { deleteDetailingModelThunk } from '../../redux/slices/deleteDetailingModelThunk';
+import { DeleteModellThunk } from '../../redux/slices/DeleteModellThunk';
 
 export const ManageModels = () => {
   const dispatch = useDispatch();
@@ -167,12 +168,12 @@ export const ManageModels = () => {
 
   const deleteModel = async (idModel) => {
     if (window.confirm('האם אתה בטוח שברצונך למחוק דגם זה?')) {
-      // const resultAction = await dispatch(DeleteModellThunk(idModel));
-      // if (DeleteModellThunk.fulfilled.match(resultAction)) {
-      //   await dispatch(getModelThunk());
-      // } else {
-      //   alert('אירעה שגיאה במחיקת הדגם');
-      // }
+      const resultAction = await dispatch(DeleteModellThunk(idModel));
+      if (DeleteModellThunk.fulfilled.match(resultAction)) {
+        await dispatch(getModelThunk());
+      } else {
+        alert('אירעה שגיאה במחיקת הדגם');
+      }
     }
   };
 
